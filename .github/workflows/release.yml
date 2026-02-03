@@ -39,7 +39,9 @@ jobs:
           targets: ${{ matrix.target }}
 
       - name: Install frontend dependencies
-        run: npm install
+        run: |
+          npm config set registry https://registry.npmjs.org/
+          npm install
 
       - name: Build Tauri app
         uses: tauri-apps/tauri-action@v0
